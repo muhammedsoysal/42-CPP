@@ -121,24 +121,3 @@ void PhoneBook::searchContact(int index) const
 	else
 		std::cout << "Invalid index." << std::endl;
 }
-
-int main()
-{
-	PhoneBook phoneBook;
-	std::string command;
-	while (1)
-	{
-		command = phoneBook.getInput("Enter a command (ADD, SEARCH, EXIT): ");
-		if (command.empty())
-			break;
-		if (command == "ADD" || command == "add")
-			phoneBook.addContact(phoneBook);
-		else if (command == "SEARCH" || command == "search")
-			phoneBook.searchContact(0);
-		else if (command == "EXIT" || command == "exit")
-			break;
-		else
-			std::cout << "Invalid command" << std::endl;
-	}
-	return 0;
-}
