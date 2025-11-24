@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			std::cout << (char)toupper(argv[i][j]);
+			std::cout << std::toupper(argv[i][j]);
 			j++;
 		}
 	}
