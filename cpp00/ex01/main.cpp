@@ -12,7 +12,7 @@ int main()
 		if (command == "ADD")
 			phoneBook.addContact(phoneBook);
 		else if (command == "SEARCH")
-			phoneBook.searchContact(0);
+			phoneBook.searchContact();
 		else if (command == "EXIT")
 			break;
 		else

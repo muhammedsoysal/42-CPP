@@ -8,7 +8,7 @@ class PhoneBook
 public:
 	PhoneBook();
 	void addContact(PhoneBook &phoneBook);
-	void searchContact(int index) const;
+	void searchContact() const;
 	std::string getInput(const std::string &prompt) const;
 
 private:

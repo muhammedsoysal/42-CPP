@@ -73,10 +73,8 @@ std::string PhoneBook::formatField(const std::string &field) const
 	return field;
 }
 
-void PhoneBook::searchContact(int index) const
+void PhoneBook::searchContact() const
 {
-	(void)index;
-
 	if (contactCount == 0)
 	{
 		std::cout << "No contacts available." << std::endl;
