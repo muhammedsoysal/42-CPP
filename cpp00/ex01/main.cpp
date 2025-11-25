@@ -7,8 +7,6 @@ int main()
 	while (1)
 	{
 		command = phoneBook.getInput("Enter a command (ADD, SEARCH, EXIT): ");
-		if (command.empty())
-			break;
 		if (command == "ADD")
 			phoneBook.addContact(phoneBook);
 		else if (command == "SEARCH")
