@@ -1,8 +1,8 @@
-NAME = a.out
+NAME = weapon
 CPP= c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp
+SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJS = $(SRCS:.cpp=.o)
 RM = rm -f
 
