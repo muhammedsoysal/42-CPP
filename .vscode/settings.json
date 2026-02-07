@@ -57,6 +57,15 @@
         "text_encoding": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "__bit_reference": "cpp",
+        "__locale": "cpp",
+        "__verbose_abort": "cpp",
+        "bitset": "cpp",
+        "ios": "cpp",
+        "locale": "cpp",
+        "mutex": "cpp",
+        "print": "cpp",
+        "stack": "cpp"
     }
 }

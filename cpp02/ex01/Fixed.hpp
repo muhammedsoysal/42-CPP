@@ -24,7 +24,7 @@ public:
 	int toInt(void) const;
 
 private:
-	int pointValue;
+	int fixPointValue;
 	static const int fractionalBits = 8;
 };
 // Operators
