@@ -8,8 +8,11 @@ class Fixed
 public:
 	// Constructors
 	Fixed(void);
+	// copy constructor
 	Fixed(const Fixed &copy);
+	// int constructor
 	Fixed(int value);
+	// float constructor
 	Fixed(float value);
 
 	// Operators
