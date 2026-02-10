@@ -6,7 +6,7 @@
 /*   By: musoysal <musoysal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 21:43:33 by musoysal          #+#    #+#             */
-/*   Updated: 2026/01/28 19:42:49 by musoysal         ###   ########.fr       */
+/*   Updated: 2026/02/10 22:47:47 by musoysal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Fixed::Fixed(const float value)
 	std::cout << "Float constructor called" << std::endl;
 	// örnek : value = 3.14, fractionalBits = 8, 1 << fractionalBits = 256 -> 3.14 * 256 = 802.24 -> roundf(802.24) = 802
 	// 1 <<8 = 256 -> 3.14 * 256 = 802.24 -> roundf(802.24) = 802
-	this->fixPointValue = roundf(value * (1 << this->fractionalBits));
+	this->fixPointValue = static_cast<int>(roundf(value * (1 << this->fractionalBits)));
 }
 
 // Converter functions
