@@ -1,18 +1,18 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+
 int main(void)
 {
-	std::cout << "ScavTrap test" << std::endl;
+	ClapTrap ct("Clappy");
 	ScavTrap st("Soysal");
-	st.guardGate();
+
+	ct.attack("Enemy");
 	st.attack("Enemy");
-	st.beRepaired(10);
-	st.takeDamage(30);
-	st.takeDamage(50);
 	st.guardGate();
-	st.attack("Robot");
-	st.beRepaired(10);
-	st.takeDamage(30);
+	st.takeDamage(80);
+	st.beRepaired(20);
 	st.takeDamage(50);
+	st.attack("Ghost");
+
 	return 0;
 }
