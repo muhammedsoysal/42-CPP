@@ -1,5 +1,4 @@
 #include "Fixed.hpp"
-#include <iostream>
 #include <cmath>
 
 Fixed::Fixed() : fixPointValue(0)
@@ -39,7 +38,6 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 
 int Fixed::getRawBits(void) const
 {
-	//std::cout << "getRawBits member function called" << std::endl;
 	return this->fixPointValue;
 }
 
@@ -50,14 +48,11 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-	// exp: 1 << this->fractionalBits = 2^8 = 256
 	return static_cast<float>(this->fixPointValue) / (1 << this->fractionalBits);
 }
 
 int Fixed::toInt(void) const
 {
-	// exp: pointValue 512
-	//  512 >> 8 = 2
 	return this->fixPointValue >> this->fractionalBits;
 }
 

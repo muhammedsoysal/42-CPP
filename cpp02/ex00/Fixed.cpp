@@ -1,5 +1,4 @@
 #include "Fixed.hpp"
-#include <iostream>
 
 Fixed::Fixed() : fixPointValue(0)
 {

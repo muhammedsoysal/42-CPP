@@ -6,7 +6,7 @@
 /*   By: musoysal <musoysal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 21:43:33 by musoysal          #+#    #+#             */
-/*   Updated: 2026/02/10 22:47:47 by musoysal         ###   ########.fr       */
+/*   Updated: 2026/02/11 12:28:37 by musoysal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,18 @@ Fixed::Fixed(const int value)
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	// örnek : value = 3.14, fractionalBits = 8, 1 << fractionalBits = 256 -> 3.14 * 256 = 802.24 -> roundf(802.24) = 802
-	// 1 <<8 = 256 -> 3.14 * 256 = 802.24 -> roundf(802.24) = 802
 	this->fixPointValue = static_cast<int>(roundf(value * (1 << this->fractionalBits)));
 }
 
-// Converter functions
 int Fixed::toInt(void) const
 {
-	// örnek : point_value = 802, fractionalBits = 8, 1 << fractionalBits = 256 -> 802 >> 8 = 3
-	// 802 >> 8 = 3 -> 3.0
-	// 3.0
 	return this->fixPointValue >> this->fractionalBits;
 }
 float Fixed::toFloat(void) const
 {
-	// örnek : point_value = 802, fractionalBits = 8, 1 << fractionalBits = 256 -> 802 / 256 = 3.1328125
-	return static_cast<float>(this->fixPointValue) / (1 << this->fractionalBits); // 1 << this->fractionalBits = 256
+	return static_cast<float>(this->fixPointValue) / (1 << this->fractionalBits);
 }
 
-//	Operator overloads
 Fixed &Fixed::operator=(const Fixed &copy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
