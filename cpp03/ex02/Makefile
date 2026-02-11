@@ -1,17 +1,15 @@
 NAME = claptrap
-CPP= c++
+CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 RM = rm -f
 
-%.o: %.cpp
-	$(CPP) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CPP) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 	$(RM) $(OBJS)

@@ -10,6 +10,7 @@ int main()
     std::cout << "===== Correct polymorphism (Animal) =====" << std::endl;
     {
         const Animal* meta = new Animal();
+
         const Animal* j = new Dog();
         const Animal* i = new Cat();
 

@@ -2,6 +2,8 @@
 
 Animal::Animal() : _type("Unknown")
 {
+	std::cout << "Animal default constructor called" << std::endl;
+
 }
 
 Animal::Animal(std::string type) : _type(type)
