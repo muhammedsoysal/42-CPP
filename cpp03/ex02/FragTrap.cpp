@@ -27,7 +27,7 @@ FragTrap::~FragTrap(void)
 }
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap " << this->name << " is requesting a high five" << std::endl;
+	std::cout << this->name << " a positive high-fives request" << std::endl;
 }
 FragTrap &FragTrap::operator=(const FragTrap &copy)
 {
@@ -37,7 +37,7 @@ FragTrap &FragTrap::operator=(const FragTrap &copy)
 		this->name = copy.name;
 		this->hitPoints = copy.hitPoints;
 		this->energyPoints = copy.energyPoints;
-		this->attackDamage = copy.attackDamage;	
+		this->attackDamage = copy.attackDamage;
 	}
 	return *this;
 }
