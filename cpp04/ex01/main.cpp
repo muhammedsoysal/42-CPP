@@ -48,14 +48,14 @@ int main()
 	std::cout << "===== Deep copy test (Dog) =====" << std::endl;
 	{
 		Dog original;
-		original.brain->ideas[0] = "ben orijinalin fikri";
+		original.brain->ideas[0] = "I am the original dog's idea";
 
 		Dog copy(original); // kopya al
 
-		copy.brain->ideas[0] = "ben kopyanin fikri"; // sadece kopyanin fikrini degistir
+		copy.brain->ideas[0] = "I am the copy dog's idea"; // sadece kopyanin fikrini degistir
 
-		std::cout << "Original dog'un 1. fikri: " << original.brain->ideas[0] << std::endl;
-		std::cout << "Copy dog'un 1. fikri:     " << copy.brain->ideas[0] << std::endl;
+		std::cout << "Original dog's idea: " << original.brain->ideas[0] << std::endl;
+		std::cout << "Copy dog's idea:     " << copy.brain->ideas[0] << std::endl;
 		// Deep copy ise: ustte "ben orijinalin fikri", altta "ben kopyanin fikri" gorunur.
 		// Shallow copy ise: ikisi de "ben kopyanin fikri" olur (aynı Brain paylasiliyor).
 	}
@@ -64,14 +64,14 @@ int main()
 	std::cout << "===== Deep copy test (Cat) =====" << std::endl;
 	{
 		Cat original;
-		original.brain->ideas[0] = "orijinal kedinin fikri";
+		original.getBrain()->ideas[0] = "I am the original cat's idea";
 
 		Cat copy(original);
 
-		copy.brain->ideas[0] = "kopya kedinin fikri";
+		copy.getBrain()->ideas[0] = "I am the copy cat's idea";
 
-		std::cout << "Original cat'in 1. fikri: " << original.brain->ideas[0] << std::endl;
-		std::cout << "Copy cat'in 1. fikri:     " << copy.brain->ideas[0] << std::endl;
+		std::cout << "Original cat's idea: " << original.getBrain()->ideas[0] << std::endl;
+		std::cout << "Copy cat's idea:     " << copy.getBrain()->ideas[0] << std::endl;
 	}
 
 	return 0;

@@ -27,7 +27,12 @@ FragTrap::~FragTrap(void)
 }
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << this->name << " a positive high-fives request" << std::endl;
+	if (this->hitPoints <= 0 || this->energyPoints <= 0)
+	{
+		std::cout << this->name << " is dead or has no energy" << std::endl;
+		return;
+	}
+	std::cout << this->name << "a positive high-fives request" << std::endl;
 }
 FragTrap &FragTrap::operator=(const FragTrap &copy)
 {

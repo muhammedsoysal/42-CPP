@@ -1,38 +1,37 @@
 #include "WrongAnimal.hpp"
 
-// constructors
 WrongAnimal::WrongAnimal() : _type("Default")
 {
-	std::cout << "WrongAnimal default constructor called\n";
+	std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal (std::string type) : _type(type)
+WrongAnimal::WrongAnimal(std::string type) : _type(type)
 {
-	std::cout << "WrongAnimal constructor called\n";
+	std::cout << "WrongAnimal constructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other) : _type(other._type)
 {
-	std::cout << "WrongAnimal copy constructor called\n";
+	std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other)
 {
-	_type = other._type;
-	std::cout << "WrongAnimal copy assignment constructor called\n";
-	return (*this);
+	if (this != &other)
+	{
+		_type = other._type;
+	}
+	std::cout << "WrongAnimal copy assignment operator called" << std::endl;
+	return *this;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal deconstructor called\n";
+	std::cout << "WrongAnimal destructor called" << std::endl;
 }
-
-
-// member functions
 void WrongAnimal::makeSound() const
 {
-	std::cout << "WrongAnimal could make several different sounds\n";
+	std::cout << "WrongAnimal makeSound" << std::endl;
 }
 
 std::string WrongAnimal::getType() const
