@@ -8,14 +8,13 @@ Cat::Cat() : Animal("Cat")
 
 Cat::Cat(std::string type) : Animal(type)
 {
-	_type = type;
 	brain = new Brain();
 	std::cout << "Cat constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat &other) : Animal(other)
 {
-	brain = new Brain(*other.brain);
+	brain = new Brain(*other.getBrain());
 	std::cout << "Cat copy constructor called" << std::endl;
 }
 
@@ -39,4 +38,9 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
 	std::cout << "Miau Miau Miau" << std::endl;
+}
+
+Brain *Cat::getBrain() const
+{
+	return brain;
 }

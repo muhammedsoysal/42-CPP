@@ -6,9 +6,10 @@
 
 class Dog : public Animal
 {
-	private:
-public:
+private:
 	Brain *brain;
+
+public:
 	Dog();
 	Dog(std::string type);
 	Dog(const Dog &other);
@@ -17,6 +18,7 @@ public:
 
 	// member functions
 	virtual void makeSound() const;
+	Brain *getBrain() const;
 };
 
 #endif

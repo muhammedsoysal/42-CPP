@@ -5,73 +5,49 @@
 
 int main()
 {
-	std::cout << "===== Subject test (no leak) =====" << std::endl;
-	{
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
-
-		std::cout << "j type: " << j->getType() << std::endl;
-		std::cout << "i type: " << i->getType() << std::endl;
-		j->makeSound();
-		i->makeSound();
-
-		delete j; // should not create a leak
-		delete i;
-	}
-
-	std::cout << std::endl;
-	std::cout << "===== Array of Animals (half Dog, half Cat) =====" << std::endl;
+	// Array of Animals (polymorphism + no leak)
 	{
 		const int N = 6;
 		Animal* animals[N];
 
-		for (int i = 0; i < N / 2; i++)
-			animals[i] = new Dog();
-		for (int i = N / 2; i < N; i++)
-			animals[i] = new Cat();
-
-		for (int i = 0; i < N; i++)
+		// Alternative order: cat-dog-cat-dog...
+		for (int k = 0; k < N; ++k)
 		{
-			std::cout << "[" << i << "] " << animals[i]->getType() << " ";
-			animals[i]->makeSound();
+			if (k % 2 == 0)
+				animals[k] = new Dog();
+			else
+				animals[k] = new Cat();
 		}
 
-		for (int i = 0; i < N; i++)
-			delete animals[i];
+		for (int k = 0; k < N; ++k)
+			animals[k]->makeSound();
+
+		for (int k = 0; k < N; ++k)
+			delete animals[k];
 	}
 
-	// Deep copy = kopyalarken yeni bir Brain oluşturup içeriği kopyalamak.
-	// Shallow olsaydı: original.brain ve copy.brain AYNI adresi gösterir;
-	//   birinde ideas[0] değişince diğeri de değişir.
-	// Deep olunca: her birinin kendi Brain'i var; birini değiştirince diğeri etkilenmez.
-	std::cout << std::endl;
-	std::cout << "===== Deep copy test (Dog) =====" << std::endl;
+	// Deep copy test (Dog)
 	{
 		Dog original;
-		original.brain->ideas[0] = "I am the original dog's idea";
+		original.getBrain()->ideas[0] = "original  idea dog";
 
-		Dog copy(original); // kopya al
+		Dog copy(original);
+		copy.getBrain()->ideas[0] = "copy idea dog";
 
-		copy.brain->ideas[0] = "I am the copy dog's idea"; // sadece kopyanin fikrini degistir
-
-		std::cout << "Original dog's idea: " << original.brain->ideas[0] << std::endl;
-		std::cout << "Copy dog's idea:     " << copy.brain->ideas[0] << std::endl;
-		// Deep copy ise: ustte "ben orijinalin fikri", altta "ben kopyanin fikri" gorunur.
-		// Shallow copy ise: ikisi de "ben kopyanin fikri" olur (aynı Brain paylasiliyor).
+		std::cout << original.getBrain()->ideas[0] << std::endl;
+		std::cout << copy.getBrain()->ideas[0] << std::endl;
 	}
 
-	std::cout << std::endl;
-	std::cout << "===== Deep copy test (Cat) =====" << std::endl;
+	// Deep copy test (Cat)
 	{
 		Cat original;
-		original.getBrain()->ideas[0] = "I am the original cat's idea";
+		original.getBrain()->ideas[0] = "original idea cat";
 
 		Cat copy(original);
+		copy.getBrain()->ideas[0] = "copy idea cat";
 
-		copy.getBrain()->ideas[0] = "I am the copy cat's idea";
-
-		std::cout << "Original cat's idea: " << original.getBrain()->ideas[0] << std::endl;
-		std::cout << "Copy cat's idea:     " << copy.getBrain()->ideas[0] << std::endl;
+		std::cout << original.getBrain()->ideas[0] << std::endl;
+		std::cout << copy.getBrain()->ideas[0] << std::endl;
 	}
 
 	return 0;

@@ -38,11 +38,12 @@ int main()
         const WrongAnimal* i = new WrongCat();
 
         std::cout << "i type: " << i->getType() << std::endl; // WrongCat
+        std::cout << "meta type: " << meta->getType() << std::endl; // Default
 
         std::cout << "i->makeSound(): ";
         i->makeSound();   			// Expected: cat sound (correct, virtual means)
 									// Real: WrongAnimal sound (because virtual is not)
-
+                                    
         std::cout << "meta->makeSound(): ";
         meta->makeSound();// WrongAnimal sound (correct)
 

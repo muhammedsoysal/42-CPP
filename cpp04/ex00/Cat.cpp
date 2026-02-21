@@ -7,7 +7,6 @@ Cat::Cat() : Animal("Cat")
 
 Cat::Cat(std::string type) : Animal(type)
 {
-	_type = type;
 	std::cout << "Cat constructor called" << std::endl;
 }
 
