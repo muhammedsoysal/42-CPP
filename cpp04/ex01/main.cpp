@@ -10,7 +10,6 @@ int main()
 		const int N = 6;
 		Animal* animals[N];
 
-		// Alternative order: cat-dog-cat-dog...
 		for (int k = 0; k < N; ++k)
 		{
 			if (k % 2 == 0)

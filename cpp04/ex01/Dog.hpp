@@ -16,7 +16,6 @@ public:
 	Dog &operator=(const Dog &other);
 	~Dog();
 
-	// member functions
 	virtual void makeSound() const;
 	Brain *getBrain() const;
 };
