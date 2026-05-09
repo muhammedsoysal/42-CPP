@@ -16,9 +16,8 @@ public:
 	Dog &operator=(const Dog &other);
 	virtual ~Dog();
 
-	// member functions
 	virtual void makeSound() const;
-	Brain* getBrain() const; // getter for brain (needed for testing)
+	Brain* getBrain() const;
 };
 
 #endif

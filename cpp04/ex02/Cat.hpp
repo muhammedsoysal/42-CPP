@@ -16,9 +16,8 @@ public:
 	Cat &operator=(const Cat &other);
 	virtual ~Cat();
 
-	// member functions
 	virtual void makeSound() const;
-	Brain* getBrain() const; // getter for brain (needed for testing)
+	Brain* getBrain() const;
 };
 
 #endif

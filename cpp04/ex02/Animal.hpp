@@ -16,8 +16,7 @@ public:
 	Animal &operator=(const Animal &other);
 	virtual ~Animal();
 
-	// member functions
-	virtual void makeSound() const = 0; // pure virtual - makes Animal abstract
+	virtual void makeSound() const = 0; // pure virtual
 	std::string getType() const;
 };
 

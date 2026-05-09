@@ -41,11 +41,10 @@ int main()
         std::cout << "meta type: " << meta->getType() << std::endl; // Default
 
         std::cout << "i->makeSound(): ";
-        i->makeSound();   			// Expected: cat sound (correct, virtual means)
-									// Real: WrongAnimal sound (because virtual is not)
+        i->makeSound();
                                     
         std::cout << "meta->makeSound(): ";
-        meta->makeSound();// WrongAnimal sound (correct)
+        meta->makeSound();
 
         delete i;
         delete meta;
