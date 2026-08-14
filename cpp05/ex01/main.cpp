@@ -1,29 +1,38 @@
- #include "Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
     try
     {
-        Bureaucrat a("Alice", 42);
-        Bureaucrat b(a);
+        Bureaucrat boss("Boss", 1);
+        Bureaucrat intern("Intern", 150);
 
-        std::cout << a << std::endl;
-        std::cout << b << std::endl;
+        Form importantForm("Top Secret Form", 50, 20);
+        Form easyForm("Coffee Request", 150, 150);
 
-        a.incrementGrade();
-        std::cout << a << std::endl;
+        std::cout << "--- Initial Form Statuses ---" << std::endl;
+        std::cout << importantForm << std::endl;
+        std::cout << easyForm << std::endl;
 
-        a.decrementGrade();
-        std::cout << a << std::endl;
-        Bureaucrat c("SOYSAL", 325442);
+        std::cout << "\n--- Intern tries to sign forms ---" << std::endl;
+        intern.signForm(easyForm); // Should succeed
+        intern.signForm(importantForm); // Should fail
 
-        std::cout << c << std::endl; // This will throw an exception due to invalid grade
-        
-        
+        std::cout << "\n--- Boss tries to sign forms ---" << std::endl;
+        boss.signForm(importantForm); // Should succeed
+
+        std::cout << "\n--- Final Form Statuses ---" << std::endl;
+        std::cout << importantForm << std::endl;
+        std::cout << easyForm << std::endl;
+
+        std::cout << "\n--- Trying to create invalid form ---" << std::endl;
+        Form impossibleForm("Impossible", 0, 150); // Will throw exception
     }
     catch (const std::exception& e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << "Exception caught: " << e.what() << std::endl;
     }
+    
     return 0;
 }

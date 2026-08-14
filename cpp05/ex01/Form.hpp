@@ -1,7 +1,13 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
-class   Form : public Bureaucrat
+#include <iostream>
+#include <string>
+#include <exception>
+
+class Bureaucrat;
+
+class Form
 {
 private:
     const std::string _name;
@@ -16,5 +22,26 @@ public:
     Form& operator=(const Form& copy);
     ~Form();
 
-}
+    void    beSigned(Bureaucrat& b);
+
+    std::string getName(void) const;
+    int         getGradeToSign(void) const;
+    int         getGradeToExecute(void) const;
+    bool        getIsSigned(void) const;
+
+    class GradeTooHighException : public std::exception
+    {
+        public:
+            virtual const char* what() const throw();
+    };
+    class GradeTooLowException : public std::exception
+    {
+        public:
+            virtual const char* what() const throw();
+    };
+
+};
+
+std::ostream& operator<<(std::ostream& os, const Form& form);
+
 #endif

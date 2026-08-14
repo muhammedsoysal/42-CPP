@@ -16,9 +16,10 @@ int main()
         a.decrementGrade();
         std::cout << a << std::endl;
         Bureaucrat c("SOYSAL", 325442);
-
-        std::cout << c << std::endl; // This will throw an exception due to invalid grade
+        Bureaucrat d("SOYSAL2", 0);
         
+        std::cout << c << std::endl; // This will throw an exception due to invalid grade
+        std::cout << d << std::endl; // This will throw an exception due to invalid grade
         
     }
     catch (const std::exception& e)
