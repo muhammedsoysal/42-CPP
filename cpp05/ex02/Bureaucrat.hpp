@@ -6,7 +6,7 @@
 #include <string>
 #include <exception>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -27,7 +27,8 @@ public:
     void incrementGrade(); // Rütbeyi 1 artırır (sayısal olarak azaltır)
     void decrementGrade(); // Rütbeyi 1 azaltır (sayısal olarak artırır)    
    
-    void signForm(Form& form);
+    void signForm(AForm& aform);
+    void executeForm(AForm const & form);
 
     // İç içe Hata (Exception) Sınıfları
     class GradeTooHighException : public std::exception

@@ -3,36 +3,26 @@
 
 int main()
 {
-    try
-    {
+    try {
         Bureaucrat boss("Boss", 1);
         Bureaucrat intern("Intern", 150);
 
-        Form importantForm("Top Secret Form", 50, 20);
-        Form easyForm("Coffee Request", 150, 150);
+        Form f1("Important Form", 50, 50);
+        Form f2("Normal Form", 150, 150);
 
-        std::cout << "--- Initial Form Statuses ---" << std::endl;
-        std::cout << importantForm << std::endl;
-        std::cout << easyForm << std::endl;
+        std::cout << f1 << "\n" << f2 << std::endl;
 
-        std::cout << "\n--- Intern tries to sign forms ---" << std::endl;
-        intern.signForm(easyForm); // Should succeed
-        intern.signForm(importantForm); // Should fail
+        intern.signForm(f1); // Fails
+        intern.signForm(f2); // Succeeds
+        boss.signForm(f1);   // Succeeds
 
-        std::cout << "\n--- Boss tries to sign forms ---" << std::endl;
-        boss.signForm(importantForm); // Should succeed
+        std::cout << "\n" << f1 << "\n" << f2 << std::endl;
 
-        std::cout << "\n--- Final Form Statuses ---" << std::endl;
-        std::cout << importantForm << std::endl;
-        std::cout << easyForm << std::endl;
-
-        std::cout << "\n--- Trying to create invalid form ---" << std::endl;
-        Form impossibleForm("Impossible", 0, 150); // Will throw exception
+        Form invalidForm("Invalid", 0, 150); // Throws exception
     }
-    catch (const std::exception& e)
-    {
-        std::cout << "Exception caught: " << e.what() << std::endl;
+    catch (std::exception &e) {
+        std::cout << "\nException: " << e.what() << std::endl;
     }
-    
+
     return 0;
 }
