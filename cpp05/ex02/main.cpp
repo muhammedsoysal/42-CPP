@@ -2,10 +2,14 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 int main()
 {
+    std::srand(std::time(0));
+
     std::cout << "\n-------------------------------------------------------" << std::endl;
     std::cout << "[1] CREATING BUREAUCRATS AND FORMS" << std::endl;
     std::cout << "-------------------------------------------------------" << std::endl;
@@ -52,6 +56,15 @@ int main()
     boss.signForm(pardonForm);        // Succeeds
     manager.executeForm(pardonForm);  // Fails (40 > 5)
     boss.executeForm(pardonForm);     // Succeeds (1 <= 5)
+
+    std::cout << "\n-------------------------------------------------------" << std::endl;
+    std::cout << "[5] HEAP ALLOCATION TEST" << std::endl;
+    std::cout << "-------------------------------------------------------" << std::endl;
+
+    AForm* heapForm = new PresidentialPardonForm("Trillian");
+    boss.signForm(*heapForm);
+    boss.executeForm(*heapForm);
+    delete heapForm;
 
     std::cout << "\n-------------------------------------------------------" << std::endl;
     std::cout << "END OF TESTS" << std::endl;

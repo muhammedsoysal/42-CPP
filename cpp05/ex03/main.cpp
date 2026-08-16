@@ -13,7 +13,7 @@ int main()
     if (rrf) {
         boss.signForm(*rrf);
         boss.executeForm(*rrf);
-        delete rrf; // Hafızayı siliyoruz
+        delete rrf;
     }
     
     std::cout << "\n--- Intern Fail Test ---" << std::endl;

@@ -37,6 +37,9 @@ std::string PresidentialPardonForm::getTarget() const
 
 std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& presidentialPardonForm)
 {
-    os << presidentialPardonForm.getName() << ", Status: " << presidentialPardonForm.getIsSigned() << ", Sign Grade: " << presidentialPardonForm.getGradeToSign() << ", Exec Grade: " << presidentialPardonForm.getGradeToExecute() << ", Target: " << presidentialPardonForm.getTarget();
+    os << presidentialPardonForm.getName() << ", Status: " << presidentialPardonForm.getIsSigned()
+        << ", Sign Grade: " << presidentialPardonForm.getGradeToSign()
+        << ", Exec Grade: " << presidentialPardonForm.getGradeToExecute()
+        << ", Target: " << presidentialPardonForm.getTarget();
     return os;
 }

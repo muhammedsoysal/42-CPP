@@ -32,13 +32,13 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     if (!this->getIsSigned())
-        throw AForm::NotSignedException(); // İmzasızsa NotSignedException fırlat
+        throw AForm::NotSignedException();
     if (executor.getGrade() > this->getGradeToExecute())
-        throw AForm::GradeTooLowException(); // Rütbe yetmiyorsa hata fırlat
+        throw AForm::GradeTooLowException();
 
     std::ofstream file((this->_target + "_shrubbery").c_str());
     if (!file.is_open())
-        return; // Dosya açılamazsa sessizce çık
+        return;
     file << "      /\\      \n";
     file << "     /  \\     \n";
     file << "    /    \\    \n";

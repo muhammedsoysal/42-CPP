@@ -25,7 +25,6 @@ Form& Form::operator=(const Form& copy)
     if (this != &copy)
     {
         _isSigned = copy._isSigned;
-        // _name, _gradeToSign, ve _gradeToExecute const olduğu için burada değiştirilemezler!
     }
     return *this;
 }
@@ -42,7 +41,7 @@ bool Form::getIsSigned(void) const { return _isSigned; }
 // beSigned Metodu
 void Form::beSigned(Bureaucrat& b)
 {
-    if (b.getGrade() > _gradeToSign) // Sayı olarak büyükse rütbesi düşüktür!
+    if (b.getGrade() > _gradeToSign)
         throw GradeTooLowException();
     _isSigned = true;
 }

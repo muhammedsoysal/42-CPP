@@ -2,9 +2,10 @@
 
 int main()
 {
+    
     try
     {
-        Bureaucrat a("Alice", 42);
+        Bureaucrat a("Alice", 2);
         Bureaucrat b(a);
 
         std::cout << a << std::endl;
@@ -15,11 +16,12 @@ int main()
 
         a.decrementGrade();
         std::cout << a << std::endl;
-        Bureaucrat c("SOYSAL", 325442);
-        Bureaucrat d("SOYSAL2", 0);
         
-        std::cout << c << std::endl; // This will throw an exception due to invalid grade
-        std::cout << d << std::endl; // This will throw an exception due to invalid grade
+        Bureaucrat c("SOYSAL", 150);
+        c.incrementGrade();
+        std::cout << c << std::endl;
+        c.decrementGrade();
+        c.decrementGrade(); 
         
     }
     catch (const std::exception& e)

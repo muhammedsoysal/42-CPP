@@ -24,14 +24,12 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     if (!this->getIsSigned())
-        throw AForm::NotSignedException(); // İmzasızsa NotSignedException fırlat
+        throw AForm::NotSignedException();
     if (executor.getGrade() > this->getGradeToExecute())
-        throw AForm::GradeTooLowException(); // Rütbe yetmiyorsa hata fırlat
+        throw AForm::GradeTooLowException();
 
-    // Rastgele ses çıkar
     std::cout << "* BRRR... VRRR... DRRR... *";
     
-    // %50 ihtimalle başarılı
     if (std::rand() % 2 == 0)
         std::cout << " Robotomyzed " << _target << " successfully!" << std::endl;
     else
