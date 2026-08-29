@@ -8,7 +8,7 @@ int main()
     Bureaucrat boss("Boss", 1);
     Intern someRandomIntern;
     
-    std::cout << "\n--- Intern Success Test ---" << std::endl;
+    std::cout << "\nIntern success test:" << std::endl;
     AForm* rrf = someRandomIntern.makeForm("robotomy request", "Bender");
     if (rrf) {
         boss.signForm(*rrf);
@@ -16,7 +16,7 @@ int main()
         delete rrf;
     }
     
-    std::cout << "\n--- Intern Fail Test ---" << std::endl;
+    std::cout << "\nIntern fail test:" << std::endl;
     try {
         someRandomIntern.makeForm("unknown form", "Nobody");
     } catch (std::exception &e) {
