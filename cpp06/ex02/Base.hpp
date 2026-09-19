@@ -1,7 +1,9 @@
-#pragma once
+#ifndef BASE_HPP
+#define BASE_HPP
 
-class Base
-{
+class Base {
 public:
-    virtual ~Base() {}
+    virtual ~Base();
 };
+
+#endif

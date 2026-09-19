@@ -74,6 +74,6 @@ int main()
     identify(*instance);
     identify(instance);
     
-    delete instance; // Hafiza sizintisini (Memory Leak) onlemek icin ekledik
+    delete instance;
     return 0;
 }
