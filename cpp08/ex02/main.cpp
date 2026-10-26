@@ -4,16 +4,12 @@
 
 int main()
 {
-    // Subject MutantStack Testi
     MutantStack<int> mstack;
     mstack.push(5);
     mstack.push(17);
-
     std::cout << mstack.top() << std::endl;
-
     mstack.pop();
     std::cout << mstack.size() << std::endl;
-
     mstack.push(3);
     mstack.push(5);
     mstack.push(737);
@@ -21,7 +17,6 @@ int main()
 
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
-
     ++it;
     --it;
     while (it != ite)
@@ -29,20 +24,23 @@ int main()
         std::cout << *it << std::endl;
         ++it;
     }
+    std::cout << "--------------------" << std::endl;
+
     std::stack<int> s(mstack);
+    while(!s.empty())
+    {
+        std::cout << s.top() << std::endl;
+        s.pop();
+    }
 
     std::cout << "--------------------" << std::endl;
 
-    // std::list ile Karşılaştırma
     std::list<int> lst;
     lst.push_back(5);
     lst.push_back(17);
-
     std::cout << lst.back() << std::endl;
-
     lst.pop_back();
     std::cout << lst.size() << std::endl;
-
     lst.push_back(3);
     lst.push_back(5);
     lst.push_back(737);
@@ -50,7 +48,6 @@ int main()
 
     std::list<int>::iterator lit = lst.begin();
     std::list<int>::iterator lite = lst.end();
-
     ++lit;
     --lit;
     while (lit != lite)

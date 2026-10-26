@@ -14,8 +14,7 @@ class Span
         Span &operator=(const Span &other);
         ~Span();
         void addNumber(int num);
-        template <typename T>
-        void addNumber(T begin, T end)
+        template <typename T> void addNumber(T begin, T end)
         {
             while (begin != end)
             {

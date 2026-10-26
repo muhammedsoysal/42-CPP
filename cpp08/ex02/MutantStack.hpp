@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MUTANTSTACK_HPP
+#define MUTANTSTACK_HPP
 
 #include <stack>
 #include <iostream>
@@ -36,7 +37,8 @@ public:
     const_iterator begin() const
     {
         return this->c.begin();
-    }
-
-   
+    } 
 };
+
+#endif
+
