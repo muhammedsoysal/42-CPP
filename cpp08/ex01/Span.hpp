@@ -1,6 +1,9 @@
-#pragma once
+#ifndef SPAN_HPP
+#define SPAN_HPP
 
 #include <vector>
+#include <algorithm>
+#include <stdexcept>
 
 class Span
 {
@@ -25,3 +28,4 @@ class Span
         int shortestSpan();
         int longestSpan();
 };
+#endif

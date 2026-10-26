@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Array.hpp"
 
 int main() {
@@ -7,20 +8,27 @@ int main() {
 
     Array<int> arr(5);
     for (unsigned int i = 0; i < arr.size(); i++) {
-        arr[i] = i * 5;
-        std::cout << arr[i] << " ";
+        arr[i] = (i + 1) * 10;
     }
-    std::cout << std::endl;
 
     Array<int> copyArr(arr);
-    copyArr[0] = 76;
-    
-    std::cout << arr[0] << std::endl;
-    std::cout << copyArr[0] << std::endl;
+    copyArr[0] = 999;
+    std::cout << arr[0] << " " << copyArr[0] << std::endl;
 
-    try {
+    Array<int> assignedArr;
+    assignedArr = arr;
+    assignedArr[0] = 555;
+    std::cout << arr[0] << " " << assignedArr[0] << std::endl;
+
+    const Array<int> constArr = arr;
+    std::cout << constArr[2] << std::endl;
+
+    try
+    {
         arr[10] = 42;
-    } catch (const std::exception& e) {
+    }
+    catch (const std::exception &e)
+    {
         std::cerr << e.what() << std::endl;
     }
 

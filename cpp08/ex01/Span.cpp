@@ -56,7 +56,7 @@ int Span::shortestSpan()
     std::sort(sorted.begin(), sorted.end());
     int minDiff = sorted[1] - sorted[0];
 
-    for (size_t i = 1; i < sorted.size() - 1; i++)
+    for (std::size_t i = 1; i < sorted.size() - 1; i++)
     {
         int diff = sorted[i + 1] - sorted[i];
         if (diff < minDiff)

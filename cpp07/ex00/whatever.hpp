@@ -1,18 +1,24 @@
-#pragma once
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
+template <typename T>
+void swap(T &a, T &b)
+{
+    T tmp = a;
+    a = b;
+    b = tmp;
+}
 
-template <typename T> void swap(T& t1,T& t2){
-    T type = t1;
-    t1 = t2;
-    t2 = type;
+template <typename T>
+const T &min(const T &a, const T &b)
+{
+    return (a < b) ? a : b;
 }
-template <typename T> T min(T a, T b){
-    if(a < b)
-        return a;
-    return b;
+
+template <typename T>
+const T &max(const T &a, const T &b)
+{
+    return (a > b) ? a : b;
 }
-template <typename T> T max(T a, T b){
-    if(a > b)
-        return a;
-    return b;
-}
+
+#endif
