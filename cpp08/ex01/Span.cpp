@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <algorithm>
 
 Span::Span()
 {
@@ -44,9 +45,12 @@ int Span::longestSpan()
     if(this->numbers.size() <= 1)
         throw std::runtime_error("Span has less than 2 numbers");
 
-    std::vector<int> sorted = this->numbers;
-    std::sort(sorted.begin(), sorted.end());
-    return sorted.back() - sorted.front();
+    int min_number = *std::min_element(this->numbers.begin(), this->numbers.end());
+    int max_number = *std::max_element(this->numbers.begin(), this->numbers.end());
+    return max_number - min_number;
+    // std::vector<int> sorted = this->numbers;
+    // std::sort(sorted.begin(), sorted.end());
+    // return sorted.back() - sorted.front();
 }
 int Span::shortestSpan()
 {
